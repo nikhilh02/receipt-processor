@@ -4,5 +4,5 @@ import com.receiptprocessor.receipt_processor.entity.Receipt;
 
 public interface ReceiptService {
     String saveReceipt(Receipt receipt);
-    double getReceiptPoints(String receiptId);
+    int getReceiptPoints(String receiptId);
 }

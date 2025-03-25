@@ -18,9 +18,9 @@ public class ReceiptController {
     }
 
     @GetMapping("/{id}/points")
-    public Map<String, Double> getReceiptPointsById(@PathVariable String id) {
-        Map<String, Double> responseMap = new HashMap<>();
-        double responsePoints = receiptService.getReceiptPoints(id);
+    public Map<String, Integer> getReceiptPointsById(@PathVariable String id) {
+        Map<String, Integer> responseMap = new HashMap<>();
+        int responsePoints = receiptService.getReceiptPoints(id);
         responseMap.put("points", responsePoints);
         return responseMap;
     }

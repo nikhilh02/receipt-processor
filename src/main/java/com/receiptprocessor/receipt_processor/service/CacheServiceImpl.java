@@ -14,15 +14,15 @@ public class CacheServiceImpl implements CacheService{
     }
 
     @Override
-    public void saveReceiptPoints(String receiptId, Double points){
+    public void saveReceiptPoints(String receiptId, int points){
         ValueOperations<String, String> operation = redisTemplate.opsForValue();
-        operation.set(receiptId, points.toString());
+        operation.set(receiptId, Integer.toString(points));
     }
 
     @Override
-    public double getReceiptPoints(String receiptId){
+    public int getReceiptPoints(String receiptId){
         ValueOperations<String, String> operation = redisTemplate.opsForValue();
         String strPoints = operation.get(receiptId);
-        return Double.parseDouble(strPoints);
+        return Integer.parseInt(strPoints);
     }
 }
