@@ -27,7 +27,7 @@ public class ReceiptServiceImpl implements ReceiptService{
     }
 
     @Override
-    public int getReceiptPoints(String receiptId){
+    public int getReceiptPoints(String receiptId) throws NullPointerException{
         return cacheService.getReceiptPoints(receiptId);
     }
 

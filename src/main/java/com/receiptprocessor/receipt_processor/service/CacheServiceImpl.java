@@ -20,9 +20,12 @@ public class CacheServiceImpl implements CacheService{
     }
 
     @Override
-    public int getReceiptPoints(String receiptId){
+    public int getReceiptPoints(String receiptId) throws NullPointerException{
         ValueOperations<String, String> operation = redisTemplate.opsForValue();
         String strPoints = operation.get(receiptId);
+        if(strPoints == null){
+            throw new NullPointerException();
+        }
         return Integer.parseInt(strPoints);
     }
 }
